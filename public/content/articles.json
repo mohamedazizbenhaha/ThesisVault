@@ -1,0 +1,39 @@
+[
+    "// Supported Publishers in /content/publishers: Cambridge, DeGruyterBrill, Elsevier, Emerald, Frontiers, IEEE, MDPI, Oxford, Plos, Sage, SpringerNature, TaylorFrancis, Wiley, WoltersKluwer. You can also use 'Other' for a generic icon.",
+    {
+        "pdf": "article example 1.pdf",
+        "title": "Machine Learning for Advanced Thesis Management Systems",
+        "publisher": "IEEE",
+        "venue": "IEEE Access",
+        "url": "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6287639",
+        "type": "Journal",
+        "rank": "Q1"
+    },
+    {
+        "pdf": "article example 2.pdf",
+        "title": "Deep Learning Architectures in Academic Repositories",
+        "publisher": "Elsevier",
+        "venue": "Expert Systems with Applications",
+        "url": "https://www.sciencedirect.com/journal/expert-systems-with-applications",
+        "type": "Journal",
+        "rank": "Q1"
+    },
+    {
+        "pdf": "article example 3.pdf",
+        "title": "Automated Content Loading in Static Web Exports",
+        "publisher": "SpringerNature",
+        "venue": "Journal of Web Engineering",
+        "url": "https://www.springer.com/journal/11219",
+        "type": "Journal",
+        "rank": "Q2"
+    },
+    {
+        "pdf": "article example 4.pdf",
+        "title": "Novel Approaches to Static Site Generation",
+        "publisher": "Other",
+        "venue": "International Conference on Web Engineering",
+        "url": "https://icwe2025.org/",
+        "type": "Conference",
+        "rank": "B"
+    }
+]

@@ -1,0 +1,40 @@
+{
+    "title": "Legal Notice & Content Usage Policy",
+    "sections": [
+        {
+            "id": 1,
+            "title": "Section 1 — Content Ownership",
+            "content": "All theses, articles, images, videos, and supplementary materials displayed on this platform remain the intellectual property of their respective authors unless explicitly stated otherwise."
+        },
+        {
+            "id": 2,
+            "title": "Section 2 — Author Consent",
+            "content": "By submitting or allowing content to be published on The Thesis Vault, contributors confirm that:",
+            "list": [
+                "They are the rightful owners or authorized distributors of the submitted materials",
+                "The content does not violate copyright, privacy, or institutional policies",
+                "They consent to public, non-commercial access to their work"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Section 3 — Repository Inclusion",
+            "content": "Contributors acknowledge and accept that their work may be indexed, archived, and displayed within The Thesis Vault as part of a public academic library."
+        },
+        {
+            "id": 4,
+            "title": "Section 4 — User Responsibility",
+            "content": "Users accessing this platform agree to:",
+            "list": [
+                "Use the content for academic, educational, or research purposes only",
+                "Properly cite authors when referencing materials",
+                "Refrain from unauthorized commercial use or redistribution"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Section 5 — Limitation of Liability",
+            "content": "The platform administrator does not guarantee the accuracy, completeness, or suitability of the published content and bears no responsibility for misuse."
+        }
+    ]
+}

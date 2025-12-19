@@ -26,9 +26,16 @@ export interface ThesisMetadata {
     supervisorsInfo: PersonInfo[];
 }
 
+export type MediaMetadata = {
+    file: string;
+    title: string;
+    description: string;
+};
+
 export type MediaCategory = {
     name: string;
     items: string[]; // filenames
+    itemMetadata?: MediaMetadata[];
 };
 
 export function getThesisMetadata(): ThesisMetadata {
@@ -68,7 +75,7 @@ export function getMediaCategories(type: 'images' | 'videos'): MediaCategory[] {
 
     // Check for root items
     const rootItems = entries
-        .filter(dirent => dirent.isFile() && !dirent.name.startsWith('.'))
+        .filter(dirent => dirent.isFile() && !dirent.name.startsWith('.') && !dirent.name.endsWith('.json'))
         .map(dirent => dirent.name);
 
     if (rootItems.length > 0) {
@@ -81,20 +88,99 @@ export function getMediaCategories(type: 'images' | 'videos'): MediaCategory[] {
         const subDirPath = path.join(dirPath, folder.name);
         if (!fs.existsSync(subDirPath)) continue;
         const subItems = fs.readdirSync(subDirPath)
-            .filter(file => !file.startsWith('.') && fs.statSync(path.join(subDirPath, file)).isFile());
+            .filter(file => !file.startsWith('.') && !file.endsWith('.json') && fs.statSync(path.join(subDirPath, file)).isFile());
 
         if (subItems.length > 0) {
-            categories.push({ name: folder.name, items: subItems });
+            const jsonPath = path.join(subDirPath, `${folder.name}.json`);
+            let metadata: MediaMetadata[] = [];
+            if (fs.existsSync(jsonPath)) {
+                try {
+                    const content = fs.readFileSync(jsonPath, 'utf8');
+                    metadata = JSON.parse(content);
+                } catch (e) {
+                    console.error(`Error parsing JSON for ${folder.name}:`, e);
+                }
+            }
+
+            categories.push({
+                name: folder.name,
+                items: subItems,
+                itemMetadata: metadata
+            });
         }
     }
 
     return categories;
 }
 
-export function getArticles(): string[] {
+export interface ArticleMetadata {
+    pdf: string;
+    title: string;
+    publisher: string;
+    venue: string;
+    type: 'Journal' | 'Conference';
+    rank: string; // Q1-Q4 or A-C
+    url?: string;
+    publisherIcon?: string;
+}
+
+export function getArticles(): ArticleMetadata[] {
     const dirPath = path.join(CONTENT_DIR, 'articles');
+    const jsonPath = path.join(CONTENT_DIR, 'articles.json');
+    const publishersDir = path.join(CONTENT_DIR, 'publishers');
+
     if (!fs.existsSync(dirPath)) return [];
-    return fs.readdirSync(dirPath).filter(file => file.toLowerCase().endsWith('.pdf'));
+
+    const pdfFiles = fs.readdirSync(dirPath).filter(file => file.toLowerCase().endsWith('.pdf'));
+    let metadataList: any[] = [];
+
+    if (fs.existsSync(jsonPath)) {
+        try {
+            const content = fs.readFileSync(jsonPath, 'utf8');
+            const data = JSON.parse(content);
+            // Articles.json has a comment string at index 0
+            metadataList = Array.isArray(data) ? data.filter(item => typeof item === 'object') : [];
+        } catch (e) {
+            console.error("[getArticles] JSON Error:", e);
+        }
+    }
+
+    const publishers = fs.existsSync(publishersDir)
+        ? fs.readdirSync(publishersDir).filter(f => f.match(/\.(jpg|jpeg|png|gif|svg)$/i))
+        : [];
+
+    const result = pdfFiles.map(pdf => {
+        const cleanPdf = pdf.trim().toLowerCase();
+        const metadata = metadataList.find((m: any) =>
+            m.pdf && m.pdf.toString().trim().toLowerCase() === cleanPdf
+        );
+
+        const publisherName = metadata?.publisher || '';
+        let iconFile = undefined;
+        if (publisherName && publisherName.toLowerCase() !== 'other') {
+            const key = publisherName.toLowerCase().replace(/\s+/g, '');
+            iconFile = publishers.find(p => p.toLowerCase().includes(key));
+        }
+
+        return {
+            pdf,
+            title: metadata?.title || pdf.replace(/\.pdf$/i, '').replace(/[-_]/g, ' '),
+            publisher: publisherName || 'Other',
+            venue: metadata?.venue || 'Unknown Venue',
+            type: metadata?.type || 'Journal',
+            rank: metadata?.rank || 'N/A',
+            url: metadata?.url || '#',
+            publisherIcon: iconFile ? `/content/publishers/${iconFile}` : undefined
+        };
+    });
+
+    // CRITICAL DEBUG: Check for identical items
+    console.log(`[getArticles] Returning ${result.length} articles.`);
+    result.forEach((a, i) => {
+        console.log(`  Article ${i}: [${a.pdf}] -> Title: "${a.title}", Venue: "${a.venue}", Icon: ${a.publisherIcon}`);
+    });
+
+    return result;
 }
 
 export function getManuscriptFile(): string | null {

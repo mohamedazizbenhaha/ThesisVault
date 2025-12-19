@@ -33,11 +33,11 @@ export default function Presentation({ metadata, sections, fileInfo }: Presentat
     return (
         <Layout title="Presentation" sections={sections} metadata={metadata}>
             <div className="w-[80vw] mx-auto space-y-8">
-                <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 px-4 sm:px-0">
+                <div className="pt-4 mb-12 flex flex-col md:flex-row md:items-center justify-between gap-6 px-4 sm:px-0">
                     <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors">
                         <ArrowLeft size={16} className="mr-1" /> Back to Home
                     </Link>
-                    <h1 className="text-3xl font-bold text-gray-900 text-center flex-1">Defense Presentation</h1>
+                    <h1 className="text-3xl font-black text-gray-900 text-center flex-1 tracking-tight">Defense Presentation</h1>
                 </div>
 
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 md:p-8 min-h-[70vh] flex flex-col items-center justify-center">

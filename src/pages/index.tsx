@@ -128,7 +128,7 @@ export default function Home({ metadata, sections }: HomeProps) {
 
     return (
         <Layout sections={sections} metadata={metadata}>
-            <div className="max-w-[80%] mx-auto space-y-24 py-6 scale-95 origin-top">
+            <div className="w-[80vw] mx-auto space-y-20 pt-4">
                 {/* Hero Section */}
                 <div className="text-center space-y-10">
                     <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase">

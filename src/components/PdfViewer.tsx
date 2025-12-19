@@ -13,7 +13,7 @@ interface PdfViewerProps {
 export default function PdfViewer({ file, title }: PdfViewerProps) {
     const [numPages, setNumPages] = useState<number>(0);
     const [pageNumber, setPageNumber] = useState(1);
-    const [scale, setScale] = useState<number>(0.8);
+    const [scale, setScale] = useState<number>(0.9);
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(1000);
     const [error, setError] = useState<string | null>(null);
