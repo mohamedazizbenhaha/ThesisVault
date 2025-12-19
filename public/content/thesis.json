@@ -1,0 +1,64 @@
+{
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "description": "Vestibulum neque massa, scelerisque sit amet ligula eu, congue molestie mi. Praesent ut\nvarius sem. Nullam at porttitor arcu, nec lacinia nisi. Ut ac dolor vitae odio interdum\ncondimentum. Vivamus dapibus sodales ex, vitae malesuada ipsum cursus\nconvallis. Maecenas sed egestas nulla, ac condimentum orci. Mauris diam felis,\nvulputate ac suscipit et, iaculis non est. Curabitur semper arcu ac ligula semper, nec luctus\nnisl blandit. Integer lacinia ante ac libero lobortis imperdiet.\nNullam mollis convallis ipsum,\nac accumsan nunc vehicula vitae. Nulla eget justo in felis tristique fringilla. Morbi sit amet\ntortor quis risus auctor condimentum. Morbi in ullamcorper elit. Nulla iaculis tellus sit amet\nmauris tempus fringilla.",
+    "authorInfo": {
+        "name": "John Doe",
+        "institution": "University of Research and Science",
+        "description": "Vestibulum neque massa, scelerisque sit amet ligula eu, congue molestie mi. Praesent ut\nvarius sem. Nullam at porttitor arcu, nec lacinia nisi. Ut ac dolor vitae odio interdum\ncondimentum. Vivamus dapibus sodales ex, vitae malesuada ipsum cursus\nconvallis. Maecenas sed egestas nulla, ac condimentum orci. Mauris diam felis,\nvulputate ac suscipit et, iaculis non est. Curabitur semper arcu ac ligula semper, nec luctus\nnisl blandit. Integer lacinia ante ac libero lobortis imperdiet.\nNullam mollis convallis ipsum,\nac accumsan nunc vehicula vitae. Nulla eget justo in felis tristique fringilla. Morbi sit amet\ntortor quis risus auctor condimentum. Morbi in ullamcorper elit. Nulla iaculis tellus sit amet\nmauris tempus fringilla.",
+        "image": "/content/assets/Untitled-2.jpg",
+        "bannerImage": "/content/assets/Untitled-1.jpg",
+        "researchFocus": "Cloud Computing, Microservices, Scalable Systems",
+        "links": [
+            {
+                "type": "orcid",
+                "url": "https://orcid.org/0000-0000-0000-0000"
+            },
+            {
+                "type": "linkedin",
+                "url": "https://www.linkedin.com/"
+            },
+            {
+                "type": "github",
+                "url": "https://github.com"
+            }
+        ]
+    },
+    "supervisorsInfo": [
+        {
+            "name": "Prof. Alex Smith",
+            "institution": "Technical University of Innovation",
+            "description": "Expert in Blockchain and Secure Systems.",
+            "image": "/content/assets/Untitled-2.jpg",
+            "bannerImage": "/content/assets/Untitled-1.jpg",
+            "researchFocus": "Blockchain, Cybersecurity, Distributed Ledger",
+            "links": [
+                {
+                    "type": "orcid",
+                    "url": "https://orcid.org/0000-0000-0000-0000"
+                },
+                {
+                    "type": "linkedin",
+                    "url": "https://linkedin.com"
+                }
+            ]
+        },
+        {
+            "name": "Dr. Jane Morgan",
+            "institution": "International Research University",
+            "description": "Senior Researcher in AI environments.",
+            "image": "/content/assets/Untitled-2.jpg",
+            "bannerImage": "/content/assets/Untitled-1.jpg",
+            "researchFocus": "Artificial Intelligence, Neural Networks, Deep Learning",
+            "links": [
+                {
+                    "type": "orcid",
+                    "url": "https://orcid.org/0000-0000-0000-0000"
+                },
+                {
+                    "type": "linkedin",
+                    "url": "https://linkedin.com"
+                }
+            ]
+        }
+    ]
+}
