@@ -121,7 +121,7 @@ export default function Articles({ metadata, sections, articles = [] }: Articles
             {/* PDF Modal */}
             {selectedPdf && (
                 <div
-                    className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
+                    className="fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
                     onClick={() => setSelectedPdf(null)}
                 >
                     <button

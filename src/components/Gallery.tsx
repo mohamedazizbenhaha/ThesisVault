@@ -145,7 +145,7 @@ export default function Gallery({ categories, type, searchQuery = '' }: GalleryP
             {/* Premium Split Modal */}
             {selectedItem && (
                 <div
-                    className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-2xl flex items-center justify-center animate-fade-in"
+                    className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex items-center justify-center animate-fade-in"
                     onClick={() => setSelectedItem(null)}
                 >
                     <button
